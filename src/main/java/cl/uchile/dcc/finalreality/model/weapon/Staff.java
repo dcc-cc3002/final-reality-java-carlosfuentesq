@@ -1,4 +1,18 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-public class Staff {
+public class Staff extends Weapon {
+    /**
+     * Creates a new Staff.
+     *
+     * @param name
+     *     the weapon's name
+     * @param damage
+     *     the weapon's damage
+     * @param weight
+     *     the weapon's weight
+     * @param type
+     */
+    public Staff(String name, int damage, int weight, WeaponType type) {
+        super(name, damage, weight, type);
+    }
 }
