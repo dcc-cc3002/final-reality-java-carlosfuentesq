@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-public class Bow extends Weapon {
+public class Bow extends AbstractWeapon {
     /**
      * Creates a new Bow.
      *
@@ -10,9 +10,8 @@ public class Bow extends Weapon {
      *     the weapon's damage
      * @param weight
      *     the weapon's weight
-     * @param type
      */
-    public Bow(String name, int damage, int weight, WeaponType type) {
-        super(name, damage, weight, type);
+    public Bow(String name, int damage, int weight) {
+        super(name, damage, weight);
     }
 }
