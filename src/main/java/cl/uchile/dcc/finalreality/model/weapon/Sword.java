@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-public class Sword extends AbstractWeapon{
+public class Sword extends AbstractWeapon {
     /**
      * Creates a new Sword.
      *
