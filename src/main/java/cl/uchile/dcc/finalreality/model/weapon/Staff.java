@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Staff extends AbstractWeapon {
     /**
      * Creates a new Staff.
@@ -11,7 +13,7 @@ public class Staff extends AbstractWeapon {
      * @param weight
      *     the weapon's weight
      */
-    public Staff(String name, int damage, int weight) {
+    public Staff(final @NotNull String name, final int damage, final int weight) {
         super(name, damage, weight);
     }
 }

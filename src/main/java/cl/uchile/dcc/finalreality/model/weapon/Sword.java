@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Sword extends AbstractWeapon {
     /**
      * Creates a new Sword.
@@ -11,7 +13,7 @@ public class Sword extends AbstractWeapon {
      * @param weight
      *     the weapon's weight
      */
-    public Sword(String name, int damage, int weight) {
+    public Sword(final @NotNull String name, final int damage, final int weight) {
         super(name, damage, weight);
     }
 }
