@@ -10,9 +10,9 @@ import java.util.Objects;
  */
 public abstract class AbstractWeapon implements Weapon {
 
-  private final String name;
-  private final int damage;
-  private final int weight;
+  protected final String name;
+  protected final int damage;
+  protected final int weight;
 
   /**
    * Creates a weapon with a name, a base damage, speed, and it's type.
@@ -41,28 +41,4 @@ public abstract class AbstractWeapon implements Weapon {
     return weight;
   }
 
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof final AbstractWeapon weapon)) {
-      return false;
-    }
-    return hashCode() == weapon.hashCode()
-        && damage == weapon.damage
-        && weight == weapon.weight
-        && name.equals(weapon.name);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(AbstractWeapon.class, name, damage, weight);
-  }
-
-  @Override
-  public String toString() {
-    return "Weapon{name='%s', damage=%d, weight=%d}"
-        .formatted(name, damage, weight);
-  }
 }
