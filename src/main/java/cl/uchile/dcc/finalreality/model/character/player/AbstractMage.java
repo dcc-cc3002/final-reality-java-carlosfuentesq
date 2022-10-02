@@ -4,9 +4,16 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * An abstract class that holds the common behavior of a mage character.
+ *
+ * <p>Mage characters are {@link PlayerCharacter}s with a current amount of <i>mana points</i>
+ * ({@code currentMp}) and a maximum amount of <i>mana points</i> ({@code maxMp}).
+ *
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
+ */
 public abstract class AbstractMage extends AbstractPlayerCharacter {
 
   protected int currentMp;
