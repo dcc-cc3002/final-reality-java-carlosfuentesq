@@ -9,7 +9,6 @@
 package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
-import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
@@ -22,10 +21,7 @@ import org.jetbrains.annotations.NotNull;
  * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  * @version 2.0
  */
-public class BlackMage extends AbstractPlayerCharacter {
-
-  private int currentMp;
-  private final int maxMp;
+public class BlackMage extends AbstractMage {
 
   /**
    * Creates a new Black Mage.
@@ -42,39 +38,9 @@ public class BlackMage extends AbstractPlayerCharacter {
   protected BlackMage(final @NotNull String name, final int maxHp, final int defense,
       int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
-    super(name, maxHp, defense, turnsQueue);
-    Require.statValueAtLeast(0, maxMp, "Max MP");
-    this.maxMp = maxMp;
-    this.currentMp = maxMp;
+    super(name, maxHp, defense, maxMp, turnsQueue);
   }
 
-  // region : ACCESSORS
-
-  /**
-   * Returns the character's current MP.
-   */
-  private int getCurrentMp() {
-    return currentMp;
-  }
-
-  /**
-   * Sets the character's current MP.
-   */
-  private void setCurrentMp(final int currentMp) throws InvalidStatValueException {
-    Require.statValueAtLeast(0, currentMp, "Current MP");
-    Require.statValueAtMost(maxMp, currentMp, "Current MP");
-    this.currentMp = currentMp;
-  }
-
-  /**
-   * Returns the character's max MP.
-   */
-  private int getMaxMp() {
-    return maxMp;
-  }
-  // endregion
-
-  // region : UTILITY METHODS
   @Override
   public boolean equals(final Object o) {
     if (this == o) {
@@ -100,5 +66,4 @@ public class BlackMage extends AbstractPlayerCharacter {
   public int hashCode() {
     return Objects.hash(BlackMage.class, name, maxHp, defense, maxMp);
   }
-  // endregion
 }
