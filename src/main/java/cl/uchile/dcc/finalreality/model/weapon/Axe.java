@@ -3,6 +3,9 @@ package cl.uchile.dcc.finalreality.model.weapon;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
+/** A {@link Weapon} that can be equipped by {@code Knight}s
+ *  and {@code Engineer}s.
+ */
 public class Axe extends AbstractWeapon {
   /**
    * Creates a new Axe.

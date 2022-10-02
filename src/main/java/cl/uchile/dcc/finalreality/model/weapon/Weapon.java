@@ -1,9 +1,24 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+/**
+ * This interface represents a weapon from the game.
+ *
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
+ */
 public interface Weapon {
-    String getName();
 
-    int getDamage();
+  /**
+   * Returns this weapon's name.
+   */
+  String getName();
 
-    int getWeight();
+  /**
+   * Returns this weapon's damage.
+   */
+  int getDamage();
+
+  /**
+   * Returns this weapon's weight.
+   */
+  int getWeight();
 }

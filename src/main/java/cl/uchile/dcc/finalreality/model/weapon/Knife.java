@@ -1,9 +1,11 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
+/** A {@link Weapon} that can be equipped by {@code Knight}s,
+ * {@code Thief}s and {@code BlackMage}s.
+ */
 public class Knife extends AbstractWeapon {
   /**
    * Creates a new Knife.

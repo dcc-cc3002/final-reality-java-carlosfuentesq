@@ -3,8 +3,8 @@ package cl.uchile.dcc.finalreality.model.character.player;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.BlockingQueue;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An abstract class that holds the common behavior of a mage character.
@@ -26,6 +26,7 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
    * @param name       the character's name
    * @param maxHp      the character's max hp
    * @param defense    the character's defense
+   * @param maxMp      the character's max mp
    * @param turnsQueue the queue with the characters waiting for their turn
    */
   protected AbstractMage(final @NotNull String name, final int maxHp, final int defense,

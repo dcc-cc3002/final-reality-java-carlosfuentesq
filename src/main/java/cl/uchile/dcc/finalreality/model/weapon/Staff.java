@@ -1,9 +1,11 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
+/** A {@link Weapon} that can be equipped by {@code WhiteMage}s
+ *  and {@code BlackMage}s.
+ */
 public class Staff extends AbstractWeapon {
   /**
    * Creates a new Staff.

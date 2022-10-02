@@ -1,7 +1,5 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
-
 /**
  * A class that holds all the information of a weapon.
  *
@@ -16,6 +14,13 @@ public abstract class AbstractWeapon implements Weapon {
 
   /**
    * Creates a weapon with a name, a base damage, speed, and it's type.
+   *
+   * @param name
+   *      the weapon's name
+   * @param damage
+   *      the weapon's damage
+   * @param weight
+   *      the weapon's weight
    */
   public AbstractWeapon(final String name, final int damage, final int weight) {
     this.name = name;
@@ -33,12 +38,8 @@ public abstract class AbstractWeapon implements Weapon {
     return damage;
   }
 
-  /**
-   * Returns the weight of the weapon.
-   */
   @Override
   public int getWeight() {
     return weight;
   }
-
 }

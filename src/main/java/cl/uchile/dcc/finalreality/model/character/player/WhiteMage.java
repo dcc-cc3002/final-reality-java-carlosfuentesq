@@ -31,6 +31,8 @@ public class WhiteMage extends AbstractMage {
    *     the character's max hp
    * @param defense
    *     the character's defense
+   * @param maxMp
+   *     the character's max mp
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
