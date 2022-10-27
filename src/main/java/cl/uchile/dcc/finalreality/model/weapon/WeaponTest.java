@@ -35,6 +35,10 @@ public class WeaponTest {
     assertNotEquals(axe1, axe2);
     assertNotEquals(staff1, staff2);
     assertNotEquals(sword1, sword2);
+    assertNotEquals(bow1, axe1);
+    assertNotEquals(sword1, staff2);
+    assertEquals(axe1,axe1);
+    assertEquals(bow1,bow1);
   }
 
   @Test
@@ -73,5 +77,20 @@ public class WeaponTest {
     assertEquals(expected13, sword1.getName());
     assertEquals(expected14, sword1.getDamage());
     assertEquals(expected15, sword1.getWeight());
+  }
+
+  @Test
+  public void testToString() {
+    String expected1 = "Axe{name='Axe 2', damage=10, weight=5}";
+    String expected2 = "Bow{name='Bow 2', damage=9, weight=4}";
+    String expected3 = "Knife{name='Knife 1', damage=3, weight=1}";
+    String expected4 = "Staff{name='Staff 1', damage=5, weight=5}";
+    String expected5 = "Sword{name='Sword 2', damage=9, weight=5}";
+
+    assertEquals(expected1, axe2.toString());
+    assertEquals(expected2, bow2.toString());
+    assertEquals(expected3, knife2.toString());
+    assertEquals(expected4, staff2.toString());
+    assertEquals(expected5, sword2.toString());
   }
 }
