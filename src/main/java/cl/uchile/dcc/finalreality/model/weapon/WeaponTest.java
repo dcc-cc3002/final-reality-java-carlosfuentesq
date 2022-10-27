@@ -36,4 +36,42 @@ public class WeaponTest {
     assertNotEquals(staff1, staff2);
     assertNotEquals(sword1, sword2);
   }
+
+  @Test
+  public void testGetters() {
+    String expected1 = "Knife 1";
+    int expected2 = 3;
+    int expected3 = 1;
+    assertEquals(expected1, knife1.getName());
+    assertEquals(expected2, knife1.getDamage());
+    assertEquals(expected3, knife1.getWeight());
+
+    String expected4 = "Axe 1";
+    int expected5 = 10;
+    int expected6 = 5;
+    assertEquals(expected4, axe1.getName());
+    assertEquals(expected5, axe1.getDamage());
+    assertEquals(expected6, axe1.getWeight());
+
+    String expected7 = "Bow 1";
+    int expected8 = 7;
+    int expected9 = 3;
+    assertEquals(expected7, bow1.getName());
+    assertEquals(expected8, bow1.getDamage());
+    assertEquals(expected9, bow1.getWeight());
+
+    String expected10 = "Staff 1";
+    int expected11 = 6;
+    int expected12 = 5;
+    assertEquals(expected10, staff1.getName());
+    assertEquals(expected11, staff1.getDamage());
+    assertEquals(expected12, staff1.getWeight());
+
+    String expected13 = "Sword 1";
+    int expected14 = 8;
+    int expected15 = 6;
+    assertEquals(expected13, sword1.getName());
+    assertEquals(expected14, sword1.getDamage());
+    assertEquals(expected15, sword1.getWeight());
+  }
 }
