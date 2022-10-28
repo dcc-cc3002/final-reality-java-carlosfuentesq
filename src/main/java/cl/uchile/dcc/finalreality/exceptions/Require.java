@@ -1,5 +1,5 @@
 /*
- * "Final Reality" (c) by R8V and ~Your name~
+ * "Final Reality" (c) by R8V and CFQ
  * "Final Reality" is licensed under a
  * Creative Commons Attribution 4.0 International License.
  * You should have received a copy of the license along with this
@@ -17,7 +17,7 @@ package cl.uchile.dcc.finalreality.exceptions;
  * instantiated.
  *
  * @author <a href="https://github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  */
 public final class Require {
 
