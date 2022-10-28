@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.weapon;
+import cl.uchile.dcc.finalreality.model.weapon.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 

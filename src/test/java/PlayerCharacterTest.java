@@ -1,7 +1,6 @@
-package cl.uchile.dcc.finalreality.model.character.player;
-
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.*;
 import cl.uchile.dcc.finalreality.model.weapon.Sword;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import org.junit.Before;
@@ -58,5 +57,10 @@ public class PlayerCharacterTest {
     knight1.equip(sword1);
     Weapon expected = new Sword("Sword 1", 10, 5);
     assertEquals(expected,knight1.getEquippedWeapon());
+  }
+
+  @Test
+  public void testMageAttributes() {
+
   }
 }
