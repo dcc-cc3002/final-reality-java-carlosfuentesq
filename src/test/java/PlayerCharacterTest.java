@@ -42,13 +42,22 @@ public class PlayerCharacterTest {
 
   @Test
   public void testEquals() {
-    assertEquals(engineer1, engineer2);
     assertEquals(knight1,knight1);
+    assertEquals(thief1,thief1);
+    assertEquals(engineer1,engineer1);
+    assertEquals(blackMage1,blackMage1);
+    assertEquals(whiteMage1,whiteMage1);
+    assertEquals(engineer1, engineer2);
     assertNotEquals(knight1,knight2);
     assertNotEquals(thief1,thief2);
     assertNotEquals(blackMage1,blackMage2);
     assertNotEquals(whiteMage1,whiteMage2);
     assertNotEquals(engineer1,thief2);
+    assertNotEquals(engineer1,blackMage1);
+    assertNotEquals(blackMage1,knight1);
+    assertNotEquals(knight1,thief1);
+    assertNotEquals(thief1,whiteMage1);
+    assertNotEquals(whiteMage1,knight1);
   }
 
   @Test
@@ -59,7 +68,7 @@ public class PlayerCharacterTest {
   }
 
   @Test
-  public void testMageAttributes() throws InvalidStatValueException {
+  public void testMage() throws InvalidStatValueException {
     int expected1 = 15;
     int expected2 = 25;
     int expected3 = 10;
@@ -68,5 +77,20 @@ public class PlayerCharacterTest {
     assertEquals(blackMage2.getCurrentMp(), blackMage2.getMaxMp());
     blackMage2.setCurrentMp(10);
     assertEquals(expected3, blackMage2.getCurrentMp());
+  }
+
+  @Test
+  public void testToString() {
+    String expected1 = "BlackMage{currentMp=15, maxMp=15, maxHp=10, defense=15, name='Black Mage 1'}";
+    String expected2 = "Engineer{maxHp=25, defense=10, name='Engineer 1'}";
+    String expected3 = "Knight{maxHp=30, defense=5, name='Knight 2'}";
+    String expected4 = "Thief{maxHp=20, defense=8, name='Thief 2'}";
+    String expected5 = "WhiteMage{currentMp=25, maxMp=25, maxHp=8, defense=18, name='White Mage 2'}";
+
+    assertEquals(expected1, blackMage2.toString());
+    assertEquals(expected2, engineer2.toString());
+    assertEquals(expected3, knight2.toString());
+    assertEquals(expected4, thief2.toString());
+    assertEquals(expected5, whiteMage2.toString());
   }
 }
