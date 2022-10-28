@@ -24,12 +24,12 @@ repositories {
 }
 
 dependencies {
-    implementation("org.openjfx:javafx:18.0.2:pom")
+    implementation("org.openjfx:javafx:19:pom")
     implementation("org.jetbrains:annotations:23.0.0")
     implementation("org.apache.commons:commons-lang3:3.12.0")
-    implementation("junit:junit:4.13.1")
+    implementation("junit:junit:4.13.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
-    testImplementation("junit:junit:4.13.1")
+    testImplementation("junit:junit:4.13.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }
 

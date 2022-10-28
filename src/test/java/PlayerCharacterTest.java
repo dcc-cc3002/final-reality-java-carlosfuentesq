@@ -18,10 +18,10 @@ public class PlayerCharacterTest {
   private PlayerCharacter knight2;
   private PlayerCharacter thief1;
   private PlayerCharacter thief2;
-  private PlayerCharacter blackMage1;
-  private PlayerCharacter blackMage2;
-  private PlayerCharacter whiteMage1;
-  private PlayerCharacter whiteMage2;
+  private BlackMage blackMage1;
+  private BlackMage blackMage2;
+  private WhiteMage whiteMage1;
+  private WhiteMage whiteMage2;
   private Weapon sword1;
 
   @Before
@@ -48,7 +48,6 @@ public class PlayerCharacterTest {
     assertNotEquals(thief1,thief2);
     assertNotEquals(blackMage1,blackMage2);
     assertNotEquals(whiteMage1,whiteMage2);
-    assertNotEquals(whiteMage1,blackMage1);
     assertNotEquals(engineer1,thief2);
   }
 
@@ -60,7 +59,14 @@ public class PlayerCharacterTest {
   }
 
   @Test
-  public void testMageAttributes() {
-
+  public void testMageAttributes() throws InvalidStatValueException {
+    int expected1 = 15;
+    int expected2 = 25;
+    int expected3 = 10;
+    assertEquals(expected1, blackMage2.getCurrentMp());
+    assertEquals(expected2, whiteMage2.getCurrentMp());
+    assertEquals(blackMage2.getCurrentMp(), blackMage2.getMaxMp());
+    blackMage2.setCurrentMp(10);
+    assertEquals(expected3, blackMage2.getCurrentMp());
   }
 }
