@@ -30,15 +30,24 @@ public class WeaponTest {
 
   @Test
   public void testEquals() {
+    assertEquals(axe1,axe1);
+    assertEquals(bow1,bow1);
+    assertEquals(knife1,knife1);
+    assertEquals(staff1,staff1);
+    assertEquals(sword1,sword1);
+
     assertEquals(knife1, knife2);
     assertNotEquals(bow1, bow2);
     assertNotEquals(axe1, axe2);
     assertNotEquals(staff1, staff2);
     assertNotEquals(sword1, sword2);
+
     assertNotEquals(bow1, axe1);
-    assertNotEquals(sword1, staff2);
-    assertEquals(axe1,axe1);
-    assertEquals(bow1,bow1);
+    assertNotEquals(sword1, staff1);
+    assertNotEquals(staff1, knife1);
+    assertNotEquals(knife1, bow1);
+    assertNotEquals(axe1, staff1);
+
   }
 
   @Test
