@@ -12,6 +12,9 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.weapon.Axe;
+import cl.uchile.dcc.finalreality.model.weapon.Bow;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -40,6 +43,16 @@ public class Engineer extends AbstractPlayerCharacter {
                   final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
+  }
+
+  @Override
+  public void equipAxe(Axe axe) {
+    this.equippedWeapon = axe;
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+    this.equippedWeapon = bow;
   }
 
   @Override

@@ -11,7 +11,8 @@ package cl.uchile.dcc.finalreality.model.character.player;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.*;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
 
-  private Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
 
   /**
    * Creates a new character.
@@ -63,7 +64,21 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   @Override
   public void equip(Weapon weapon) {
     weapon.equipTo(this);
-    //this.equippedWeapon = weapon;
+  }
+
+  public void equipAxe(Axe axe) {
+  }
+
+  public void equipBow(Bow bow) {
+  }
+
+  public void equipKnife(Knife knife) {
+  }
+
+  public void equipStaff(Staff staff) {
+  }
+
+  public void equipSword(Sword sword) {
   }
 
   @Override
