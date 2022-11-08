@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+
 /**
  * This interface represents a weapon from the game.
  *
@@ -21,4 +23,6 @@ public interface Weapon {
    * Returns this weapon's weight.
    */
   int getWeight();
+
+  void equipTo(PlayerCharacter playerCharacter);
 }

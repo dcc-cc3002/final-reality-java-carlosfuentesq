@@ -29,7 +29,7 @@ public interface PlayerCharacter extends GameCharacter {
   void equipStaff(Staff staff);
 
   void equipSword(Sword sword);
-  
+
   /**
    * Return this character's equipped weapon.
    */

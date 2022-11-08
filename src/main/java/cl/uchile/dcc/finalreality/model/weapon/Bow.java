@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
 import java.util.Objects;
+
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 
 /** A {@link Weapon} that can be equipped by {@code Engineer}s
@@ -19,6 +21,11 @@ public class Bow extends AbstractWeapon {
    */
   public Bow(final @NotNull String name, final int damage, final int weight) {
     super(name, damage, weight);
+  }
+
+  @Override
+  public void equipTo(PlayerCharacter playerCharacter) {
+    playerCharacter.equipBow(this);
   }
 
   @Override
