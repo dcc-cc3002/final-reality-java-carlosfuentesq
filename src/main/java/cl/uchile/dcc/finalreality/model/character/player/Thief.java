@@ -1,5 +1,5 @@
 /*
- * "Final Reality" (c) by R8V and ~Your name~
+ * "Final Reality" (c) by R8V and CFQ
  * "Final Reality" is licensed under a
  * Creative Commons Attribution 4.0 International License.
  * You should have received a copy of the license along with this
@@ -12,6 +12,10 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.weapon.Bow;
+import cl.uchile.dcc.finalreality.model.weapon.Knife;
+import cl.uchile.dcc.finalreality.model.weapon.Sword;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -19,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  * {@code Bow}s.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  * @version 2.0
  */
 public class Thief extends AbstractPlayerCharacter {
@@ -40,6 +44,21 @@ public class Thief extends AbstractPlayerCharacter {
       final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
+  }
+
+  @Override
+  public void equipSword(Sword sword) {
+    this.equippedWeapon = sword;
+  }
+
+  @Override
+  public void equipKnife(Knife knife) {
+    this.equippedWeapon = knife;
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+    this.equippedWeapon = bow;
   }
 
   @Override

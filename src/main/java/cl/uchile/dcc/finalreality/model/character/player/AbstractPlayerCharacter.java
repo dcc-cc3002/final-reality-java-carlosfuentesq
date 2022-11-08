@@ -1,5 +1,5 @@
 /*
- * "Final Reality" (c) by R8V and ~Your name~
+ * "Final Reality" (c) by R8V and CFQ
  * "Final Reality" is licensed under a
  * Creative Commons Attribution 4.0 International License.
  * You should have received a copy of the license along with this
@@ -11,8 +11,11 @@ package cl.uchile.dcc.finalreality.model.character.player;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.*;
+
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -23,12 +26,12 @@ import org.jetbrains.annotations.NotNull;
  * waiting for their turn ({@code turnsQueue}), and can equip a {@link Weapon}.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  */
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
 
-  private Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
 
   /**
    * Creates a new character.
@@ -50,8 +53,32 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   }
 
   @Override
+  public void waitTurn() {
+    scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+    scheduledExecutor.schedule(
+        /* command = */ this::addToQueue,
+        /* delay = */ this.getEquippedWeapon().getWeight() / 10,
+        /* unit = */ TimeUnit.SECONDS);
+  }
+
+  @Override
   public void equip(Weapon weapon) {
-    this.equippedWeapon = weapon;
+    weapon.equipTo(this);
+  }
+
+  public void equipAxe(Axe axe) {
+  }
+
+  public void equipBow(Bow bow) {
+  }
+
+  public void equipKnife(Knife knife) {
+  }
+
+  public void equipStaff(Staff staff) {
+  }
+
+  public void equipSword(Sword sword) {
   }
 
   @Override

@@ -1,73 +1,28 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 
 /**
- * A class that holds all the information of a weapon.
+ * This interface represents a weapon from the game.
  *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  */
-public class Weapon {
-
-  private final String name;
-  private final int damage;
-  private final int weight;
-  private final WeaponType type;
+public interface Weapon {
 
   /**
-   * Creates a weapon with a name, a base damage, speed, and it's type.
+   * Returns this weapon's name.
    */
-  public Weapon(final String name, final int damage, final int weight,
-      final WeaponType type) {
-    this.name = name;
-    this.damage = damage;
-    this.weight = weight;
-    this.type = type;
-  }
-
-  private String getName() {
-    return name;
-  }
-
-  private int getDamage() {
-    return damage;
-  }
+  String getName();
 
   /**
-   * Returns the weight of the weapon.
+   * Returns this weapon's damage.
    */
-  public int getWeight() {
-    return weight;
-  }
+  int getDamage();
 
-  private WeaponType getType() {
-    return type;
-  }
+  /**
+   * Returns this weapon's weight.
+   */
+  int getWeight();
 
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof final Weapon weapon)) {
-      return false;
-    }
-    return hashCode() == weapon.hashCode()
-        && damage == weapon.damage
-        && weight == weapon.weight
-        && name.equals(weapon.name)
-        && type == weapon.type;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(Weapon.class, name, damage, weight, type);
-  }
-
-  @Override
-  public String toString() {
-    return "Weapon{name='%s', damage=%d, weight=%d, type=%s}"
-        .formatted(name, damage, weight, type);
-  }
+  void equipTo(PlayerCharacter playerCharacter);
 }

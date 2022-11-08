@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character.player;
 
 /*
- * "Final Reality" (c) by R8V and ~Your name~
+ * "Final Reality" (c) by R8V and CFQ
  * "Final Reality" is licensed under a
  * Creative Commons Attribution 4.0 International License.
  * You should have received a copy of the license along with this
@@ -9,7 +9,7 @@ package cl.uchile.dcc.finalreality.model.character.player;
  */
 
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.*;
 
 /**
  * A {@link GameCharacter} that can equip a weapon.
@@ -19,6 +19,16 @@ public interface PlayerCharacter extends GameCharacter {
    * Equips a weapon to the character.
    */
   void equip(Weapon weapon);
+
+  void equipAxe(Axe axe);
+
+  void equipBow(Bow bow);
+
+  void equipKnife(Knife knife);
+
+  void equipStaff(Staff staff);
+
+  void equipSword(Sword sword);
 
   /**
    * Return this character's equipped weapon.
