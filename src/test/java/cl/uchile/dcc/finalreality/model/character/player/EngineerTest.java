@@ -2,6 +2,7 @@ package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
+import cl.uchile.dcc.finalreality.model.weapon.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,11 +25,15 @@ public class EngineerTest {
   }
 
   @Test
-  public void equipAxe() {
-  }
-
-  @Test
-  public void equipBow() {
+  public void testEquip() {
+    Weapon expected = new Axe("Axe 1", 10, 5);
+    engineer1.equip(new Axe("Axe 1", 10, 5));
+    assertEquals(expected, engineer1.getEquippedWeapon());
+    expected = new Bow("Bow 1", 7, 3);
+    engineer1.equip(new Bow("Bow 1", 7, 3));
+    assertEquals(expected, engineer1.getEquippedWeapon());
+    engineer1.equip(new Staff("Staff 1", 6, 5));
+    assertEquals(expected, engineer1.getEquippedWeapon());
   }
 
   @Test
