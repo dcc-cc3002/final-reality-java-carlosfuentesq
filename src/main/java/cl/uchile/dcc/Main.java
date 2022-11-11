@@ -3,11 +3,7 @@ package cl.uchile.dcc;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.Enemy;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.character.player.BlackMage;
-import cl.uchile.dcc.finalreality.model.character.player.Engineer;
-import cl.uchile.dcc.finalreality.model.character.player.Knight;
-import cl.uchile.dcc.finalreality.model.character.player.Thief;
-import cl.uchile.dcc.finalreality.model.character.player.WhiteMage;
+import cl.uchile.dcc.finalreality.model.character.player.*;
 import cl.uchile.dcc.finalreality.model.weapon.Knife;
 import cl.uchile.dcc.finalreality.model.weapon.Sword;
 import java.util.Random;
@@ -43,7 +39,9 @@ public class Main {
     while (!queue.isEmpty()) {
       // Pops and prints the names of the characters of the queue to illustrate the turns
       // order, this tests the character's toString method
-      System.out.println(queue.poll().toString());
+      Thief character = (Thief) queue.poll();
+      System.out.println(character.toString());
+      System.out.println(character.getEquippedWeapon().getWeight());
     }
     // endregion
 

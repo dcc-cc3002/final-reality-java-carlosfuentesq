@@ -14,14 +14,17 @@ public class EnemyTest {
   private GameCharacter enemy1;
   private GameCharacter enemy2;
   private GameCharacter enemy3;
+  private Enemy enemy4;
   private GameCharacter knight1;
+  private BlockingQueue<GameCharacter> queue;
 
   @Before
   public void setUp() throws InvalidStatValueException {
-    BlockingQueue<GameCharacter> queue = new LinkedBlockingQueue<>();
+    queue = new LinkedBlockingQueue<>();
     enemy1 = new Enemy("Enemy 1",10,20,15,queue);
     enemy2 = new Enemy("Enemy 2",15,25,10,queue);
     enemy3 = new Enemy("Enemy 1",10,20,15,queue);
+    enemy4 = new Enemy("Enemy 4",20,25,10,queue);
     knight1 = new Knight("Knight 1", 30, 5, queue);
   }
 
@@ -37,10 +40,26 @@ public class EnemyTest {
     assertEquals(expectedHp, enemy2.getCurrentHp());
     int expectedDefense = 10;
     assertEquals(expectedDefense, enemy2.getDefense());
+    int expectedWeight = 20;
+    assertEquals(expectedWeight, enemy4.getWeight());
   }
 
   @Test
-  public void waitTurn() {
+  public void testWaitTurnAndToString() throws InterruptedException {
+    enemy1.waitTurn();
+    enemy2.waitTurn();
+    enemy4.waitTurn();
+    Thread.sleep(6000);
+    String expected = "Enemy{name='Enemy 2', weight=15, maxHp=25, defense=10}";
+    assertFalse(queue.isEmpty());
+    assertEquals(expected, queue.poll().toString());
+    expected = "Enemy{name='Enemy 1', weight=10, maxHp=20, defense=15}";
+    assertFalse(queue.isEmpty());
+    assertEquals(expected, queue.poll().toString());
+    expected = "Enemy{name='Enemy 4', weight=20, maxHp=25, defense=10}";
+    assertFalse(queue.isEmpty());
+    assertEquals(expected, queue.poll().toString());
+    assertTrue(queue.isEmpty());
   }
 
   @Test
