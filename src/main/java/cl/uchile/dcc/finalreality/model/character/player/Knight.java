@@ -10,12 +10,11 @@ package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import java.util.Objects;
-import java.util.concurrent.BlockingQueue;
-
 import cl.uchile.dcc.finalreality.model.weapon.Axe;
 import cl.uchile.dcc.finalreality.model.weapon.Knife;
 import cl.uchile.dcc.finalreality.model.weapon.Sword;
+import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
 
 /**

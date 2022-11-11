@@ -1,8 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
-
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
 /** A {@link Weapon} that can be equipped by {@code WhiteMage}s
