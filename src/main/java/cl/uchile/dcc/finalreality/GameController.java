@@ -59,7 +59,13 @@ public class GameController {
     enemyCharacters.add(new Enemy(name, weight, maxHp, defense, turnsQueue));
   }
 
-  
+  public void attack(GameCharacter attacker, GameCharacter target) {
+    attacker.attack(target);
+  }
 
+  public void useSpell(GameCharacter attacker, GameCharacter target) {
+    attacker.useSpellOn(target);
+  }
+  
 
 }
