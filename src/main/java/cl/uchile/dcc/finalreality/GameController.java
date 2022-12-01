@@ -25,9 +25,9 @@ public class GameController {
     createEnemy();
 
     for (PlayerCharacter playerCharacter : playerCharacters)
-      playerCharacter.waitTurn();
+      waitTurn(playerCharacter);
     for (Enemy enemy : enemyCharacters)
-      enemy.waitTurn();
+      waitTurn(enemy);
   }
   public void createBlackMage(String name, int maxHp, int defense, int maxMp)
       throws InvalidStatValueException {
@@ -59,13 +59,23 @@ public class GameController {
     enemyCharacters.add(new Enemy(name, weight, maxHp, defense, turnsQueue));
   }
 
-  public void attack(GameCharacter attacker, GameCharacter target) {
+  public void attack(@NotNull GameCharacter attacker, GameCharacter target) {
     attacker.attack(target);
   }
 
-  public void useSpell(GameCharacter attacker, GameCharacter target) {
+  public void useSpell(@NotNull GameCharacter attacker, GameCharacter target) {
     attacker.useSpellOn(target);
   }
-  
 
+  public void waitTurn(@NotNull GameCharacter character) {
+    character.waitTurn();
+  }
+
+  public void onPlayerWin() {
+    // TODO: Handle the player winning the game
+  }
+
+  public void onEnemyWin() {
+    // TODO: Handle the enemy winning the game
+  }
 }
