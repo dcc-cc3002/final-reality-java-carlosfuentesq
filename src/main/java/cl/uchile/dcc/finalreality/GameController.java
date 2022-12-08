@@ -8,13 +8,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class GameController {
-  private BlockingQueue<GameCharacter> turnsQueue = new LinkedBlockingQueue<>();
-  private List<PlayerCharacter> playerCharacters = new ArrayList<>();
-  private List<Enemy> enemyCharacters = new ArrayList<>();
+  private final BlockingQueue<GameCharacter> turnsQueue = new LinkedBlockingQueue<>();
+  private final List<PlayerCharacter> playerCharacters = new ArrayList<>();
+  private final List<Enemy> enemyCharacters = new ArrayList<>();
 
   public GameController() {
     createKnight();
@@ -59,12 +60,13 @@ public class GameController {
     enemyCharacters.add(new Enemy(name, weight, maxHp, defense, turnsQueue));
   }
 
-  public void attack(@NotNull GameCharacter attacker, GameCharacter target) {
+  public void attack(@NotNull GameCharacter attacker, GameCharacter target)
+      throws InvalidStatValueException {
     attacker.attack(target);
   }
 
-  public void useSpell(@NotNull GameCharacter attacker, GameCharacter target) {
-    attacker.useSpellOn(target);
+  public void useMagic(@NotNull GameCharacter attacker, GameCharacter target) {
+    attacker.useMagicOn(target);
   }
 
   public void waitTurn(@NotNull GameCharacter character) {

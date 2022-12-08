@@ -6,6 +6,8 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -17,23 +19,26 @@ import org.jetbrains.annotations.NotNull;
 public class Enemy extends AbstractCharacter {
 
   private final int weight;
+  private final int damage;
 
   /**
    * Creates a new enemy with a name, a weight and the queue with the characters ready to
    * play.
    *
    * @param name the character's name
+   * @param damage the character's damage
    * @param weight the character's weight
    * @param maxHp the character's max HP
    * @param defense the character's defense
    * @param turnsQueue the queue with the characters waiting for their turn
    */
-  public Enemy(@NotNull final String name, final int weight, int maxHp, int defense,
-      @NotNull final BlockingQueue<GameCharacter> turnsQueue)
+  public Enemy(@NotNull final String name, final int damage, final int weight, int maxHp,
+               int defense, @NotNull final BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
     Require.statValueAtLeast(1, weight, "Weight");
     this.weight = weight;
+    this.damage = damage;
   }
 
   /**
@@ -41,6 +46,12 @@ public class Enemy extends AbstractCharacter {
    */
   public int getWeight() {
     return weight;
+  }
+
+  @Override
+  public void attack(@NotNull GameCharacter target) throws InvalidStatValueException {
+    int trueDamage = this.damage * (100/(100 + target.getDefense()));
+    target.setCurrentHp(target.getCurrentHp() - trueDamage);
   }
 
   @Override
