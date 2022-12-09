@@ -74,10 +74,10 @@ public class GameController {
   }
 
   public void onPlayerWin() {
-    // TODO: Handle the player winning the game
+    if (enemyCharacters.isEmpty()) System.out.println("Player wins!");
   }
 
   public void onEnemyWin() {
-    // TODO: Handle the enemy winning the game
+    if (playerCharacters.isEmpty()) System.out.println("Enemy wins!");
   }
 }
