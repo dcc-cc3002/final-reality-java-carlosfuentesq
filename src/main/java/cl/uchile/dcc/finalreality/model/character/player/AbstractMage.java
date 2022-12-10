@@ -4,6 +4,8 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.magic.Magic;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -36,6 +38,12 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
     Require.statValueAtLeast(0, maxMp, "Max MP");
     this.maxMp = maxMp;
     this.currentMp = maxMp;
+  }
+
+  public void useMagic(@NotNull Magic magic, @NotNull GameCharacter target)
+      throws InvalidStatValueException {
+    this.currentMp -= magic.getPrice();
+    magic.use(this, target);
   }
 
   /**

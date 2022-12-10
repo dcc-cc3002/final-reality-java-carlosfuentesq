@@ -24,5 +24,7 @@ public interface Weapon {
    */
   int getWeight();
 
+  int getMagicDamage();
+
   void equipTo(PlayerCharacter playerCharacter);
 }

@@ -12,8 +12,8 @@ public class StaffTest {
 
   @Before
   public void setUp() {
-    staff1 = new Staff("Staff 1", 6, 5);
-    staff2 = new Staff("Staff 1", 5, 5);
+    staff1 = new Staff("Staff 1", 6, 5, magicDamage);
+    staff2 = new Staff("Staff 1", 5, 5, magicDamage);
     knife1 = new Knife("Knife 1", 3, 1);
   }
 

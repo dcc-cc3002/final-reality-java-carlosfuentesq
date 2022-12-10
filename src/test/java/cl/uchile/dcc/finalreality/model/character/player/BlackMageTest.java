@@ -34,8 +34,8 @@ public class BlackMageTest {
     Weapon expected = new Knife("Knife 1", 3, 1);
     blackMage1.equip(new Knife("Knife 1", 3, 1));
     assertEquals(expected, blackMage1.getEquippedWeapon());
-    expected = new Staff("Staff 1", 6, 5);
-    blackMage1.equip(new Staff("Staff 1", 6, 5));
+    expected = new Staff("Staff 1", 6, 5, magicDamage);
+    blackMage1.equip(new Staff("Staff 1", 6, 5, magicDamage));
     assertEquals(expected, blackMage1.getEquippedWeapon());
     blackMage1.equip(new Sword("Sword 1", 7, 8));
     assertEquals(expected, blackMage1.getEquippedWeapon());

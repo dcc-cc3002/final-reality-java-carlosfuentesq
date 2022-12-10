@@ -32,7 +32,7 @@ public class EngineerTest {
     expected = new Bow("Bow 1", 7, 3);
     engineer1.equip(new Bow("Bow 1", 7, 3));
     assertEquals(expected, engineer1.getEquippedWeapon());
-    engineer1.equip(new Staff("Staff 1", 6, 5));
+    engineer1.equip(new Staff("Staff 1", 6, 5, magicDamage));
     assertEquals(expected, engineer1.getEquippedWeapon());
   }
 

@@ -23,7 +23,7 @@ public class Knife extends AbstractWeapon {
   }
 
   @Override
-  public void equipTo(PlayerCharacter playerCharacter) {
+  public void equipTo(@NotNull PlayerCharacter playerCharacter) {
     playerCharacter.equipKnife(this);
   }
 

@@ -14,7 +14,7 @@ public class SwordTest {
   public void setUp() {
     sword1 = new Sword("Sword 1", 8, 6);
     sword2 = new Sword("Sword 2", 9, 5);
-    staff1 = new Staff("Staff 1", 6, 5);
+    staff1 = new Staff("Staff 1", 6, 5, magicDamage);
   }
 
   @Test

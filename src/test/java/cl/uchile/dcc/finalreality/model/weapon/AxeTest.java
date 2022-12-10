@@ -14,7 +14,7 @@ public class AxeTest {
   public void setUp() {
     axe1 = new Axe("Axe 1", 10, 5);
     axe2 = new Axe("Axe 2", 10, 5);
-    staff1 = new Staff("Staff 1", 6, 5);
+    staff1 = new Staff("Staff 1", 6, 5, magicDamage);
   }
 
   @Test

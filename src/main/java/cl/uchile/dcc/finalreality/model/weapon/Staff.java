@@ -8,22 +8,28 @@ import org.jetbrains.annotations.NotNull;
  *  and {@code BlackMage}s.
  */
 public class Staff extends AbstractWeapon {
+  private final int magicDamage;
+
   /**
    * Creates a new Staff.
    *
-   * @param name
-   *     the weapon's name
-   * @param damage
-   *     the weapon's damage
-   * @param weight
-   *     the weapon's weight
+   * @param name        the weapon's name
+   * @param damage      the weapon's damage
+   * @param weight      the weapon's weight
+   * @param magicDamage the weapon's magic damage
    */
-  public Staff(final @NotNull String name, final int damage, final int weight) {
+  public Staff(final @NotNull String name, final int damage, final int weight, int magicDamage) {
     super(name, damage, weight);
+    this.magicDamage = magicDamage;
   }
 
   @Override
-  public void equipTo(PlayerCharacter playerCharacter) {
+  public int getMagicDamage() {
+    return magicDamage;
+  }
+
+  @Override
+  public void equipTo(@NotNull PlayerCharacter playerCharacter) {
     playerCharacter.equipStaff(this);
   }
 

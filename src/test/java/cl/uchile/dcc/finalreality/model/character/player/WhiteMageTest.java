@@ -4,7 +4,6 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Knife;
 import cl.uchile.dcc.finalreality.model.weapon.Staff;
-import cl.uchile.dcc.finalreality.model.weapon.Sword;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,8 +30,8 @@ public class WhiteMageTest {
 
   @Test
   public void testEquip() {
-    Weapon expected = new Staff("Staff 1", 6, 5);
-    whiteMage1.equip(new Staff("Staff 1", 6, 5));
+    Weapon expected = new Staff("Staff 1", 6, 5, magicDamage);
+    whiteMage1.equip(new Staff("Staff 1", 6, 5, magicDamage));
     assertEquals(expected, whiteMage1.getEquippedWeapon());
     whiteMage1.equip(new Knife("Knife 1", 3, 1));
     assertEquals(expected, whiteMage1.getEquippedWeapon());
