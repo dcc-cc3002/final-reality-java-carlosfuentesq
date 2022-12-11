@@ -3,9 +3,8 @@ package cl.uchile.dcc.finalreality.model.character.player;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import java.util.concurrent.BlockingQueue;
-
 import cl.uchile.dcc.finalreality.model.magic.Magic;
+import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  */
-public abstract class AbstractMage extends AbstractPlayerCharacter {
+public abstract class AbstractMage extends AbstractPlayerCharacter implements Mage {
 
   protected int currentMp;
   protected final int maxMp;
@@ -40,31 +39,25 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
     this.currentMp = maxMp;
   }
 
+  @Override
   public void useMagic(@NotNull Magic magic, @NotNull GameCharacter target)
       throws InvalidStatValueException {
     this.currentMp -= magic.getPrice();
     magic.use(this, target);
   }
 
-  /**
-   * Returns the current MP of the character.
-   */
+  @Override
   public int getCurrentMp() {
     return currentMp;
   }
 
-  /**
-   * Sets the current MP of the character to {@code newMp}.
-   */
+  @Override
   public void setCurrentMp(final int newMp) throws InvalidStatValueException {
     Require.statValueAtLeast(0, newMp, "Current MP");
     Require.statValueAtMost(maxMp, newMp, "Current MP");
     this.currentMp = newMp;
   }
 
-  /**
-   * Returns the max MP of the character.
-   */
   public int getMaxMp() {
     return maxMp;
   }

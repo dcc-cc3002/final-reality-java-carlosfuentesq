@@ -43,7 +43,7 @@ public interface GameCharacter {
   void setCurrentHp(int hp) throws InvalidStatValueException;
 
   /**
-   *
+   * Causes damage to an opponent.
    */
   void attack(GameCharacter target) throws InvalidStatValueException;
 }

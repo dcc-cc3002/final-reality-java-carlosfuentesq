@@ -66,12 +66,12 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   }
 
   public void attack(@NotNull GameCharacter target) throws InvalidStatValueException {
-    int trueDamage = this.equippedWeapon.getDamage() * (100/(100 + target.getDefense()));
+    int trueDamage = this.equippedWeapon.getDamage() * (100 / (100 + target.getDefense()));
     target.setCurrentHp(target.getCurrentHp() - trueDamage);
   }
 
   @Override
-  public void equip(Weapon weapon) {
+  public void equip(@NotNull Weapon weapon) {
     weapon.equipTo(this);
   }
 

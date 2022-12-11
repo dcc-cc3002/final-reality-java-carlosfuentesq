@@ -6,8 +6,6 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -50,7 +48,7 @@ public class Enemy extends AbstractCharacter {
 
   @Override
   public void attack(@NotNull GameCharacter target) throws InvalidStatValueException {
-    int trueDamage = this.damage * (100/(100 + target.getDefense()));
+    int trueDamage = this.damage * (100 / (100 + target.getDefense()));
     target.setCurrentHp(target.getCurrentHp() - trueDamage);
   }
 
@@ -65,8 +63,8 @@ public class Enemy extends AbstractCharacter {
 
   @Override
   public String toString() {
-    return "Enemy{name='%s', weight=%d, maxHp=%d, defense=%d}"
-        .formatted(name, weight, maxHp, defense);
+    return "Enemy{name='%s', damage='%s', weight=%d, maxHp=%d, defense=%d}"
+        .formatted(name, damage, weight, maxHp, defense);
   }
 
   @Override

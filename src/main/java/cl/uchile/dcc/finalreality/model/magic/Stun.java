@@ -5,7 +5,10 @@ import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 
-public class Stun extends AbstractWhiteMagic {
+/**
+ * A {@link Magic} that applies the paralysis effect to an opponent when used.
+ */
+public class Stun extends AbstractMagic {
   protected Stun() {
     super(25);
   }

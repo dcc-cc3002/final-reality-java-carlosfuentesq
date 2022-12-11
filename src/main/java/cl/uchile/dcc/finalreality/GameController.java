@@ -3,14 +3,20 @@ package cl.uchile.dcc.finalreality;
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.Enemy;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.character.player.*;
-import org.jetbrains.annotations.NotNull;
-
+import cl.uchile.dcc.finalreality.model.character.player.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.Knight;
+import cl.uchile.dcc.finalreality.model.character.player.Mage;
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.Thief;
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage;
+import cl.uchile.dcc.finalreality.model.magic.Magic;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import org.jetbrains.annotations.NotNull;
 
 public class GameController {
   private final BlockingQueue<GameCharacter> turnsQueue = new LinkedBlockingQueue<>();
@@ -18,18 +24,15 @@ public class GameController {
   private final List<Enemy> enemyCharacters = new ArrayList<>();
 
   public GameController() {
-    createKnight();
-    createEngineer();
-    createBlackMage();
 
-    createEnemy();
-    createEnemy();
-
-    for (PlayerCharacter playerCharacter : playerCharacters)
+    for (PlayerCharacter playerCharacter : playerCharacters) {
       waitTurn(playerCharacter);
-    for (Enemy enemy : enemyCharacters)
+    }
+    for (Enemy enemy : enemyCharacters) {
       waitTurn(enemy);
+    }
   }
+
   public void createBlackMage(String name, int maxHp, int defense, int maxMp)
       throws InvalidStatValueException {
     playerCharacters.add(new BlackMage(name, maxHp, defense, maxMp, turnsQueue));
@@ -55,9 +58,9 @@ public class GameController {
     playerCharacters.add(new WhiteMage(name, maxHp, defense, maxMp, turnsQueue));
   }
 
-  public void createEnemy(String name, int weight, int maxHp, int defense)
+  public void createEnemy(String name, int damage, int weight, int maxHp, int defense)
       throws InvalidStatValueException {
-    enemyCharacters.add(new Enemy(name, weight, maxHp, defense, turnsQueue));
+    enemyCharacters.add(new Enemy(name, damage, weight, maxHp, defense, turnsQueue));
   }
 
   public void attack(@NotNull GameCharacter attacker, GameCharacter target)
@@ -65,8 +68,10 @@ public class GameController {
     attacker.attack(target);
   }
 
-  public void useMagic(@NotNull GameCharacter attacker, GameCharacter target) {
-    attacker.useMagicOn(target);
+  public void useMagic(@NotNull Magic magic,
+                       @NotNull Mage attacker,
+                       @NotNull GameCharacter target) throws InvalidStatValueException {
+    attacker.useMagic(magic, target);
   }
 
   public void waitTurn(@NotNull GameCharacter character) {
@@ -74,10 +79,14 @@ public class GameController {
   }
 
   public void onPlayerWin() {
-    if (enemyCharacters.isEmpty()) System.out.println("Player wins!");
+    if (enemyCharacters.isEmpty()) {
+      System.out.println("Player wins!");
+    }
   }
 
   public void onEnemyWin() {
-    if (playerCharacters.isEmpty()) System.out.println("Enemy wins!");
+    if (playerCharacters.isEmpty()) {
+      System.out.println("Enemy wins!");
+    }
   }
 }

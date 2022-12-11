@@ -21,10 +21,10 @@ public class EnemyTest {
   @Before
   public void setUp() throws InvalidStatValueException {
     queue = new LinkedBlockingQueue<>();
-    enemy1 = new Enemy("Enemy 1",10,20,15,queue);
-    enemy2 = new Enemy("Enemy 2",15,25,10,queue);
-    enemy3 = new Enemy("Enemy 1",10,20,15,queue);
-    enemy4 = new Enemy("Enemy 4",20,25,10,queue);
+    enemy1 = new Enemy("Enemy 1",7,10,20,15,queue);
+    enemy2 = new Enemy("Enemy 2",10,15,25,10,queue);
+    enemy3 = new Enemy("Enemy 1",7,10,20,15,queue);
+    enemy4 = new Enemy("Enemy 4",12,15,25,10,queue);
     knight1 = new Knight("Knight 1", 30, 5, queue);
   }
 

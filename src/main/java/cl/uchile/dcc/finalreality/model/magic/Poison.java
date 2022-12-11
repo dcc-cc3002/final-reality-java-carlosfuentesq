@@ -5,7 +5,10 @@ import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 
-public class Poison extends AbstractWhiteMagic {
+/**
+ * A {@link Magic} that applies the poison effect to an opponent.
+ */
+public class Poison extends AbstractMagic {
   protected Poison() {
     super(40);
   }
