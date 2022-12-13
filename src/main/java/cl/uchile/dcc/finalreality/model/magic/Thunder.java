@@ -2,7 +2,10 @@ package cl.uchile.dcc.finalreality.model.magic;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
-import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.Mage;
+import cl.uchile.dcc.finalreality.model.effect.Effect;
+import cl.uchile.dcc.finalreality.model.effect.Paralysis;
+import java.util.Random;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -20,9 +23,13 @@ public class Thunder extends AbstractMagic {
   }
 
   @Override
-  public void use(@NotNull PlayerCharacter self, @NotNull GameCharacter target)
+  public void use(@NotNull Mage self, @NotNull GameCharacter target)
       throws InvalidStatValueException {
     target.setCurrentHp(target.getCurrentHp() - self.getEquippedWeapon().getMagicDamage());
-    // TODO: handle status effect
+    Random rnd = new Random();
+    if (rnd.nextInt(10) < 3) {
+      Effect effect = new Paralysis();
+      effect.apply(self, target);
+    }
   }
 }

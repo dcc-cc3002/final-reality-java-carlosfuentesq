@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A {@link PlayerCharacter} that can use {@link Magic}.
  */
-public interface Mage {
+public interface Mage extends PlayerCharacter {
   /** Uses a {@link Magic} over a target {@link GameCharacter}.
    *
    * @param magic the {@link Magic} to be used
