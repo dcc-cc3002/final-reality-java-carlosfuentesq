@@ -4,28 +4,39 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that holds all the information of a single enemy of the game.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/carlosfuentesq">CFQ</a>
  */
 public class Enemy extends AbstractCharacter {
 
   private final int weight;
+  private final int damage;
 
   /**
    * Creates a new enemy with a name, a weight and the queue with the characters ready to
    * play.
+   *
+   * @param name the character's name
+   * @param damage the character's damage
+   * @param weight the character's weight
+   * @param maxHp the character's max HP
+   * @param defense the character's defense
+   * @param turnsQueue the queue with the characters waiting for their turn
    */
-  public Enemy(@NotNull final String name, final int weight, int maxHp, int defense,
-      @NotNull final BlockingQueue<GameCharacter> turnsQueue)
+  public Enemy(@NotNull final String name, final int damage, final int weight, int maxHp,
+               int defense, @NotNull final BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
     Require.statValueAtLeast(1, weight, "Weight");
     this.weight = weight;
+    this.damage = damage;
   }
 
   /**
@@ -33,6 +44,27 @@ public class Enemy extends AbstractCharacter {
    */
   public int getWeight() {
     return weight;
+  }
+
+  @Override
+  public void attack(@NotNull GameCharacter target) throws InvalidStatValueException {
+    int trueDamage = this.damage * (100 / (100 + target.getDefense()));
+    target.setCurrentHp(target.getCurrentHp() - trueDamage);
+  }
+
+  @Override
+  public void waitTurn() {
+    scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+    scheduledExecutor.schedule(
+        /* command = */ this::addToQueue,
+        /* delay = */ this.getWeight() / 10,
+        /* unit = */ TimeUnit.SECONDS);
+  }
+
+  @Override
+  public String toString() {
+    return "Enemy{name='%s', damage='%s', weight=%d, maxHp=%d, defense=%d}"
+        .formatted(name, damage, weight, maxHp, defense);
   }
 
   @Override
